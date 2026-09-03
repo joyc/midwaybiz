@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 要确认：正式上线前将域名替换为真实域名
+Sitemap: https://www.midway-corp.jp/sitemap.xml
