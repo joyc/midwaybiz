@@ -10,7 +10,7 @@
    7. MARQUEE     无限滚动条（内容复制实现无缝）
    8. BRANDTRACK  品牌卡带拖拽横移
    9. ANCHORS     平滑锚点滚动兜底
-   10. FORM       联系表单校验 + 模拟提交
+   10. FORM       联系表单校验 + 提交（可配置真实端点）
    11. MISC       回到顶部 / 外链占位
    ========================================================================== */
 (function () {
@@ -85,7 +85,7 @@
   var DICT = {
     ja: {
       'meta.title': '株式会社MIDWAY｜日本と世界の中間点で、価値を編む。',
-      'meta.desc': '株式会社MIDWAYは、越境貿易・自社ブランド（アパレル／童鞋）・OEM生産・ECストア運営を一気通貫で手がけるトレーディングカンパニーです。',
+      'meta.desc': '株式会社MIDWAYは、越境貿易・自社ブランド（アパレル／子供革靴）・OEM生産・ECストア運営を一気通貫で手がけるトレーディングカンパニーです。',
 
       'nav.about': '会社について',
       'nav.business': '事業内容',
@@ -101,28 +101,28 @@
       'a11y.skip': 'コンテンツへスキップ',
 
       'hero.title': '日本と世界の<span class="u-vermilion">中間点</span>で、<br>価値を編む。',
-      'hero.lead': '貿易から自社ブランド（アパレル／童鞋）、OEM生産、ECストア運営まで。モノと価値が行き交う「MIDWAY＝中間点」から、次のビジネスをつくります。',
+      'hero.lead': '貿易から自社ブランド（アパレル／子供革靴）、OEM生産、ECストア運営まで。モノと価値が行き交う「MIDWAY＝中間点」から、次のビジネスをつくります。',
       'hero.ctaPrimary': '事業内容を見る',
       'hero.ctaSecondary': 'お問い合わせ',
-      'hero.vertical': '株式会社ミッドウェイ',
+      'hero.vertical': '株式会社ミッドウェー',
 
       'img.heroMain': 'ミッドウェイのアパレルルック——服装編集イメージ',
       'img.heroFabric': '生地の質感クローズアップ',
-      'img.heroKids': 'poco step の童鞋',
-      'img.brandApparel': 'NAGARE のルックイメージ',
-      'img.brandKids': 'poco step の童鞋ルック',
+      'img.heroKids': '3elves の子供革靴',
+      'img.brandApparel': 'WEARSHOW のルックイメージ',
+      'img.brandKids': '3elves の子供革靴ルック',
       'img.oemFactory': '縫製工場の作業風景',
 
       'about.vertical': '会社について',
       'about.title': '行き交うものごとの、<br>中間点に立つ。',
       'about.lead': 'ブランドの想いと、ものづくりの現場。日本の市場と、世界の工場。株式会社MIDWAYは、それらの「間（＝midway）」に立つ会社です。',
-      'about.p1': '2012年の創業以来、越境貿易で培った調達力と、自社ブランドで磨いた企画力。その二つを両輪に、生地の選定から縫製、検品、店頭に並ぶ瞬間まで、一貫して品質を見つめてきました。',
+      'about.p1': '2023年の創業以来、越境貿易で培った調達力と、自社ブランドで磨いた企画力。その二つを両輪に、生地の選定から縫製、検品、店頭に並ぶ瞬間まで、一貫して品質を見つめてきました。',
       'about.p2': '海を隔てた工場と、日本の店舗と。そのあいだに立ち、言葉と品質の橋渡しをする。それが社名の由来であり、これからも変わらない約束です。',
 
       'pillar1.name': 'つなぐ',
       'pillar1.desc': '海外のサプライチェーンと日本市場を、最短距離で結ぶ。',
       'pillar2.name': 'つくる',
-      'pillar2.desc': 'アパレルと童鞋の企画から生産まで、一気通貫で手がける。',
+      'pillar2.desc': 'アパレルと子供革靴の企画から生産まで、一気通貫で手がける。',
       'pillar3.name': 'まわす',
       'pillar3.desc': 'ECストアを軸に、ブランドと顧客を結ぶ体験を運営する。',
 
@@ -141,7 +141,7 @@
       'biz.trade.name': '越境貿易',
       'biz.trade.desc': '日本と中国・東南アジアを結ぶ貿易実務。生地・資材の調達から製品の輸出入まで、一貫して支えます。',
       'biz.brand.name': 'ブランド事業',
-      'biz.brand.desc': '自社アパレルブランドと童鞋ブランドの企画・生産・販売。素材と縫製にこだわったものづくり。',
+      'biz.brand.desc': '自社アパレルブランドと子供革靴ブランドの企画・生産・販売。素材と縫製にこだわったものづくり。',
       'biz.oem.name': 'OEM生産',
       'biz.oem.desc': '国内アパレル・雑貨メーカー様の企画を形にする受託生産。小ロットから量産まで対応します。',
       'biz.ec.name': 'EC運営',
@@ -149,11 +149,11 @@
 
       'brands.title': 'ブランド',
       'brands.lead': '素材と仕立てに向き合う、二つの自社ブランド。',
-      'brands.brand1.desc': '日々に寄り添う、上質な定番服。天然素材の風合いを活かしたレディース・メンズウェア。',
+      'brands.brand1.desc': '毎日の眠りをもっと心地よく。やさしい肌ざわりと快適な着心地にこだわった、家族みんなのためのルームウェア・パジャマをお届けします。',
       'brands.brand1.cat1': 'レディース',
       'brands.brand1.cat2': 'メンズ',
-      'brands.brand1.cat3': '定番',
-      'brands.brand2.desc': 'はじめての一歩を、やさしく支える童鞋。成長する足に寄り添う設計と、安心の素材選び。',
+      'brands.brand1.cat3': 'キッズ',
+      'brands.brand2.desc': 'はじめての一歩を、やさしく支える子供革靴。成長する足に寄り添う設計と、安心の素材選び。',
       'brands.brand2.cat1': 'キッズ',
       'brands.brand2.cat2': 'シューズ',
       'brands.brand2.cat3': 'ベビー',
@@ -178,31 +178,32 @@
       'oem.cap.moq.label': '最小ロット',
       'oem.cap.moq.value': '100点〜（アイテムによりご相談）',
       'oem.cap.leadtime.label': 'リードタイム',
-      'oem.cap.leadtime.value': 'サンプル 約2週間 / 量産 約45日〜',
+      'oem.cap.leadtime.value': 'サンプル 約2週間 / 量産 約30日〜',
       'oem.cap.items.label': '対応品目',
-      'oem.cap.items.value': 'カットソー・布帛・ニット・童鞋 ほか',
+      'oem.cap.items.value': 'アパレル製品全般、靴・服飾雑貨など',
 
       'ec.title': 'EC ストア',
-      'ec.lead': '国内主要モールで、自社ブランドの商品をお求めいただけます。',
-      'ec.store1.desc': 'NAGARE・poco step の全ラインナップ',
+      'ec.lead': '公式ストアおよび楽天市場・Amazonなど国内主要モールで、自社ブランドの商品をお求めいただけます。',
+      'ec.store1.desc': 'WEARSHOW・3elves の全ラインナップ',
       'ec.store2.desc': '定番アイテムを中心とした品揃え',
       'ec.store3.desc': 'セール・限定アイテムを展開',
+      'ec.store4.desc': '公式オンラインストア（Shopify）で、3elves の全アイテムを販売中。',
       'ec.note': '※ 各ストアは外部サイトへ移動します。',
 
       'company.title': '会社概要',
       'company.name.label': '会社名',
       'company.name.value': '株式会社MIDWAY（MIDWAY Co., Ltd.）',
       'company.address.label': '所在地',
-      'company.address.value': '〒151-0051 東京都渋谷区千駄ヶ谷3丁目16-8 ミッドウェイビル 6F',
+      'company.address.value': '〒107-0061 東京都港区北青山一丁目3番1号 アールキューブ青山3F',
       'company.established.label': '設立',
-      'company.established.value': '2012年4月',
+      'company.established.value': '2023年8月',
       'company.capital.label': '資本金',
-      'company.capital.value': '3,000万円',
+      'company.capital.value': '500万円',
       'company.ceo.label': '代表取締役',
-      'company.ceo.value': '山田 海人',
+      'company.ceo.value': '史 セイ',
       'company.business.label': '事業内容',
-      'company.business.item1': 'アパレル・雑貨の越境貿易',
-      'company.business.item2': '自社ブランド（アパレル・童鞋）の企画・生産・販売',
+      'company.business.item1': 'アパレル・靴の越境貿易',
+      'company.business.item2': '自社ブランド（アパレル・子供革靴）の企画・生産・販売',
       'company.business.item3': '国内アパレル向けOEM受託生産',
       'company.business.item4': 'ECストアの運営',
       'company.partners.label': '主要取引先',
@@ -213,7 +214,7 @@
       'contact.phone.label': '電話',
       'contact.mail.label': 'メール',
       'contact.address.label': '所在地',
-      'contact.address.value': '東京都渋谷区千駄ヶ谷3丁目16-8 ミッドウェイビル 6F',
+      'contact.address.value': '〒107-0061 東京都港区北青山一丁目3番1号 アールキューブ青山3F',
       'contact.hours.label': '営業時間',
       'contact.hours.value': '平日 9:30–18:30（土日祝休）',
       'contact.ctaText': 'ご相談・お見積もりは専用フォームから。2営業日以内にご返信いたします。',
@@ -238,6 +239,7 @@
       'form.errRequired': 'この項目は必須です。',
       'form.errEmail': 'メールアドレスの形式が正しくありません。',
       'form.errLinks': 'リンク（URL）は2件までにしてください。',
+      'form.errSend': '送信に失敗しました。しばらくしてからもう一度お試しください。',
 
       'footer.tagline': '日本と世界の中間点で、価値を編む。'
     },
@@ -267,15 +269,15 @@
 
       'img.heroMain': 'MIDWAY服装品牌造型大片',
       'img.heroFabric': '面料质感特写',
-      'img.heroKids': 'poco step 童鞋产品',
-      'img.brandApparel': 'NAGARE 品牌造型',
-      'img.brandKids': 'poco step 童鞋造型',
+      'img.heroKids': '3elves 童鞋产品',
+      'img.brandApparel': 'WEARSHOW 品牌造型',
+      'img.brandKids': '3elves 品牌童鞋',
       'img.oemFactory': '缝制工厂作业场景',
 
       'about.vertical': '公司简介',
       'about.title': '立于往来事物的<br>中点。',
       'about.lead': '品牌的理念与制造的现场，日本的市场与世界的工厂。株式会社MIDWAY，正立于这些「之间（＝midway）」。',
-      'about.p1': '自2012年创立以来，我们以跨境贸易锤炼的采购力与自有品牌打磨的企划力为双轮，从面料选定、缝制、检品，到商品上架的那一刻，始终凝视着品质。',
+      'about.p1': '自2023年创立以来，我们以跨境贸易锤炼的采购力与自有品牌打磨的企划力为双轮，从面料选定、缝制、检品，到商品上架的那一刻，始终凝视着品质。',
       'about.p2': '隔着大海的工厂与日本的门店之间，我们立于其间，做语言与品质的摆渡人。这是社名的由来，也是始终不变的承诺。',
 
       'pillar1.name': '连接',
@@ -308,10 +310,10 @@
 
       'brands.title': '品牌',
       'brands.lead': '认真面对面料与做工的两个自有品牌。',
-      'brands.brand1.desc': '陪伴日常的高品质基础款。善用天然素材质感的女装与男装。',
+      'brands.brand1.desc': '让每天的睡眠更舒适。注重亲肤触感与舒适穿着，为全家带来家居服与睡衣。',
       'brands.brand1.cat1': '女装',
       'brands.brand1.cat2': '男装',
-      'brands.brand1.cat3': '基础款',
+      'brands.brand1.cat3': '儿童',
       'brands.brand2.desc': '温柔守护人生第一步的童鞋。贴合成长中脚型的设计与安心的选材。',
       'brands.brand2.cat1': '儿童',
       'brands.brand2.cat2': '童鞋',
@@ -337,30 +339,31 @@
       'oem.cap.moq.label': '最小起订量',
       'oem.cap.moq.value': '100件起（视品类可协商）',
       'oem.cap.leadtime.label': '交付周期',
-      'oem.cap.leadtime.value': '样品约2周 / 量产约45天起',
+      'oem.cap.leadtime.value': '样品约2周 / 量产约30天起',
       'oem.cap.items.label': '对应品类',
-      'oem.cap.items.value': '针织、梭织、毛衣、童鞋等',
+      'oem.cap.items.value': '服装产品全品类、鞋类及时尚配饰等',
 
       'ec.title': '电商店铺',
-      'ec.lead': '可在日本主流电商平台购买我们的自有品牌商品。',
-      'ec.store1.desc': 'NAGARE 与 poco step 全线商品',
+      'ec.lead': '可在官方商店以及乐天市场、Amazon 等日本主流平台购买我们的自有品牌商品。',
+      'ec.store1.desc': 'WEARSHOW 与 3elves 全线商品',
       'ec.store2.desc': '以经典款为主的商品阵容',
       'ec.store3.desc': '促销与限定商品发售中',
+      'ec.store4.desc': '官方在线商店（Shopify），3elves 全系列商品有售。',
       'ec.note': '※ 各店铺将跳转至外部网站。',
 
       'company.title': '公司概要',
       'company.name.label': '公司名称',
       'company.name.value': '株式会社MIDWAY（MIDWAY Co., Ltd.）',
       'company.address.label': '所在地',
-      'company.address.value': '〒151-0051 日本东京都涩谷区千驮谷3丁目16-8 MIDWAY大厦 6F',
+      'company.address.value': '〒107-0061 日本东京都港区北青山一丁目3番1号 R-CUBE青山 3F',
       'company.established.label': '成立时间',
-      'company.established.value': '2012年4月',
+      'company.established.value': '2023年8月',
       'company.capital.label': '注册资本',
-      'company.capital.value': '3,000万日元',
+      'company.capital.value': '500万日元',
       'company.ceo.label': '代表董事',
-      'company.ceo.value': '山田 海人',
+      'company.ceo.value': '史 セイ',
       'company.business.label': '事业内容',
-      'company.business.item1': '服装与杂货的跨境贸易',
+      'company.business.item1': '服装与鞋类的跨境贸易',
       'company.business.item2': '自有品牌（服装、童鞋）的企划、生产与销售',
       'company.business.item3': '面向日本国内服装企业的OEM委托生产',
       'company.business.item4': '电商店铺运营',
@@ -372,7 +375,7 @@
       'contact.phone.label': '电话',
       'contact.mail.label': '邮箱',
       'contact.address.label': '地址',
-      'contact.address.value': '日本东京都涩谷区千驮谷3丁目16-8 MIDWAY大厦 6F',
+      'contact.address.value': '〒107-0061 日本东京都港区北青山一丁目3番1号 R-CUBE青山 3F',
       'contact.hours.label': '营业时间',
       'contact.hours.value': '工作日 9:30–18:30（周末及节假日休息）',
       'contact.ctaText': '商务咨询与报价请使用专用表单，我们将在 2 个工作日内回复。',
@@ -397,6 +400,7 @@
       'form.errRequired': '此项为必填项。',
       'form.errEmail': '邮箱格式不正确。',
       'form.errLinks': '留言中的链接（URL）最多 2 个。',
+      'form.errSend': '发送失败，请稍后重试。',
 
       'footer.tagline': '立于日本与世界的中点，编织价值。'
     },
@@ -426,15 +430,15 @@
 
       'img.heroMain': 'Editorial look from the MIDWAY apparel line',
       'img.heroFabric': 'Close-up of fabric texture',
-      'img.heroKids': 'poco step kids shoes',
-      'img.brandApparel': 'NAGARE brand look',
-      'img.brandKids': 'poco step kids shoes look',
+      'img.heroKids': '3elves kids shoes',
+      'img.brandApparel': 'WEARSHOW brand look',
+      'img.brandKids': '3elves kids shoes look',
       'img.oemFactory': 'Sewing floor at a partner factory',
 
       'about.vertical': 'About us',
       'about.title': 'Standing at the midway point<br>of all that moves.',
       'about.lead': "A brand's vision and the factory floor. The Japanese market and workshops around the world. MIDWAY Co., Ltd. stands in the space between — the midway.",
-      'about.p1': 'Since our founding in 2012, two strengths have driven us: sourcing built through cross-border trade, and product planning refined through our own brands. From fabric selection to sewing, inspection, and the moment a product reaches the shelf, we never take our eyes off quality.',
+      'about.p1': 'Since our founding in 2023, two strengths have driven us: sourcing built through cross-border trade, and product planning refined through our own brands. From fabric selection to sewing, inspection, and the moment a product reaches the shelf, we never take our eyes off quality.',
       'about.p2': 'Between factories across the sea and stores in Japan, we stand in between, ferrying language and quality across. That is the origin of our name, and a promise that will not change.',
 
       'pillar1.name': 'Connect',
@@ -467,10 +471,10 @@
 
       'brands.title': 'Brands',
       'brands.lead': 'Two in-house brands built on honest materials and tailoring.',
-      'brands.brand1.desc': 'Refined everyday staples. Women’s and men’s wear that makes the most of natural fabrics.',
+      'brands.brand1.desc': 'Roomwear and pajamas for the whole family — gentle on the skin and made for comfortable, better sleep every day.',
       'brands.brand1.cat1': 'Women',
       'brands.brand1.cat2': 'Men',
-      'brands.brand1.cat3': 'Staples',
+      'brands.brand1.cat3': 'Kids',
       'brands.brand2.desc': 'Kids shoes that gently support every first step — designed for growing feet, made with trusted materials.',
       'brands.brand2.cat1': 'Kids',
       'brands.brand2.cat2': 'Shoes',
@@ -496,30 +500,31 @@
       'oem.cap.moq.label': 'Minimum order',
       'oem.cap.moq.value': 'From 100 units (negotiable by item)',
       'oem.cap.leadtime.label': 'Lead time',
-      'oem.cap.leadtime.value': 'Samples ~2 weeks / production ~45 days',
+      'oem.cap.leadtime.value': 'Samples ~2 weeks / production ~30 days',
       'oem.cap.items.label': 'Product scope',
-      'oem.cap.items.value': 'Cut-and-sew, woven, knit, kids shoes, and more',
+      'oem.cap.items.value': 'All types of apparel, footwear, and fashion accessories',
 
       'ec.title': 'EC Stores',
-      'ec.lead': 'Our in-house brands are available on major Japanese marketplaces.',
-      'ec.store1.desc': 'The full NAGARE and poco step lineup',
+      'ec.lead': 'Our in-house brands are available at our official store and on major Japanese marketplaces.',
+      'ec.store1.desc': 'The full WEARSHOW and 3elves lineup',
       'ec.store2.desc': 'A selection centred on staple items',
       'ec.store3.desc': 'Sales and limited-edition items',
+      'ec.store4.desc': 'All 3elves items are available at our official online store (Shopify).',
       'ec.note': '* Each store link leads to an external site.',
 
       'company.title': 'Company Profile',
       'company.name.label': 'Company name',
       'company.name.value': 'MIDWAY Co., Ltd.',
       'company.address.label': 'Address',
-      'company.address.value': 'MIDWAY Bldg. 6F, 3-16-8 Sendagaya, Shibuya-ku, Tokyo 151-0051, Japan',
+      'company.address.value': '3F, R-CUBE Aoyama, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo 107-0061, Japan',
       'company.established.label': 'Established',
-      'company.established.value': 'April 2012',
+      'company.established.value': 'August 2023',
       'company.capital.label': 'Capital',
-      'company.capital.value': 'JPY 30 million',
+      'company.capital.value': 'JPY 5 million',
       'company.ceo.label': 'Representative Director',
-      'company.ceo.value': 'Kaito Yamada',
+      'company.ceo.value': 'Sei Shi',
       'company.business.label': 'Business lines',
-      'company.business.item1': 'Cross-border trade of apparel and goods',
+      'company.business.item1': 'Cross-border trade of apparel and footwear',
       'company.business.item2': 'Planning, production, and sales of in-house brands (apparel & kids shoes)',
       'company.business.item3': 'OEM contract manufacturing for Japanese apparel companies',
       'company.business.item4': 'E-commerce store operations',
@@ -531,7 +536,7 @@
       'contact.phone.label': 'Phone',
       'contact.mail.label': 'Email',
       'contact.address.label': 'Address',
-      'contact.address.value': 'MIDWAY Bldg. 6F, 3-16-8 Sendagaya, Shibuya-ku, Tokyo',
+      'contact.address.value': '3F, R-CUBE Aoyama, 1-3-1 Kita-Aoyama, Minato-ku, Tokyo 107-0061',
       'contact.hours.label': 'Business hours',
       'contact.hours.value': 'Weekdays 9:30–18:30 (closed weekends & holidays)',
       'contact.ctaText': 'For enquiries and quotations, please use our contact form. We reply within 2 business days.',
@@ -556,6 +561,7 @@
       'form.errRequired': 'This field is required.',
       'form.errEmail': 'Please enter a valid email address.',
       'form.errLinks': 'Please keep links (URLs) to 2 or fewer.',
+      'form.errSend': 'Failed to send. Please try again later.',
 
       'footer.tagline': 'Weaving value at the midway point between Japan and the world.'
     }
@@ -901,7 +907,7 @@
   });
 
   /* ========================================================================
-     10. FORM — 校验 + 模拟提交（纯前端）
+     10. FORM — 校验 + 提交（FORM_ENDPOINT 未配置时为纯前端模拟）
      ======================================================================== */
   var form = document.getElementById('contactForm');
   var submitBtn = document.getElementById('formSubmit');
@@ -940,6 +946,9 @@
     /* ===== 反垃圾/防机器人（前端层）=====
        四层：蜜罐 + 时间陷阱 + 行为指纹 + 内容启发式。
        注意：客户端校验只能拦低级机器人，正式拦截靠 Turnstile + 后端校验（见下）。 */
+    /* 表单接收端点：Formspree 表单地址（https://formspree.io 注册获取）。
+       蜜罐与 Turnstile 组件均在 <form> 内，token 会随 FormData 一并提交；留空 = 模拟提交（不发送） */
+    var FORM_ENDPOINT = 'https://formspree.io/f/maeypgwj';
     var TURNSTILE_SITEKEY = ''; /* 要确认：Cloudflare Turnstile site key。填入后自动加载验证组件；token 必须在后端校验才真正生效 */
     var MIN_FILL_MS = 3000;   /* 从首次聚焦到提交的最短耗时 */
     var MIN_KEYS = 5;         /* 最少真实按键数（防脚本一次性填充） */
@@ -1040,17 +1049,40 @@
         }
       }
 
-      /* 模拟提交：Loading 态 → 成功态 */
+      /* 提交：FORM_ENDPOINT 未配置 → 模拟提交（纯前端演示）；已配置 → fetch 真实发送 */
       submitBtn.classList.add('is-loading');
       submitBtn.querySelector('.form__submit-label').textContent = t('form.sending');
       trackEvent('contact_form_submit', { category: document.getElementById('fCategory').value });
 
-      window.setTimeout(function () {
+      function finishSuccess() {
         formSubmitted = true;
         form.hidden = true;
         successBox.hidden = false;
         successBox.focus();
-      }, 900);
+      }
+      function failSend() {
+        submitBtn.classList.remove('is-loading');
+        submitBtn.querySelector('.form__submit-label').textContent = t('form.submit');
+        setFieldError(fMessage, errMessage, t('form.errSend'));
+        fMessage.focus();
+      }
+
+      if (!FORM_ENDPOINT) {
+        window.setTimeout(finishSuccess, 900);
+        return;
+      }
+
+      /* FormData 直接 POST：兼容 Formspree / formsubmit.co / Basin / 自建后端 */
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          finishSuccess();
+        })
+        .catch(failSend);
     });
   }
 

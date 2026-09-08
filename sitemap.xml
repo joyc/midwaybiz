@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 要确认：正式上线前将 https://www.midway-corp.jp 替换为真实域名（同步修改 robots.txt） -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.midway-corp.jp/</loc>
+    <loc>https://midway.biz/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
